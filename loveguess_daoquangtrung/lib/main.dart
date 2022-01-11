@@ -112,11 +112,10 @@ class _DemoTextFieldState extends State<DemoTextField> {
 
   int getResult(int Sum) {
     int Sumchar = 0;
-    while (Sum > 9) {
-      Sumchar += Sum % 10;
-      Sum ~/ 10;
+    String SumString = Sum.toString();
+    for (int i = 0; i < SumString.length; i++) {
+      Sumchar += int.parse(SumString[i]);
     }
-    Sumchar += Sum;
 
     return Sumchar;
   }
@@ -125,8 +124,8 @@ class _DemoTextFieldState extends State<DemoTextField> {
     String result = 'Hello';
     int i = 0, namenum1 = 0, namenum2 = 0;
 
-    name1.toUpperCase();
-    name2.toLowerCase();
+    name1 = name1.toUpperCase();
+    name2 = name2.toUpperCase();
 
     for (i = 0; i < name1.length; i++) {
       if ((name1[i] == 'A') || (name1[i] == 'K') || (name1[i] == 'U')) {
@@ -217,7 +216,7 @@ class _DemoTextFieldState extends State<DemoTextField> {
     }
 
     int Sum = namenum1 + namenum2;
-    while (Sum > 10) {
+    while (Sum > 9) {
       Sum = getResult(Sum);
     }
 
